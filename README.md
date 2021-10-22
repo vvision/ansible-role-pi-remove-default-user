@@ -1,0 +1,1 @@
+# ansible-role-pi-remove-default-user
