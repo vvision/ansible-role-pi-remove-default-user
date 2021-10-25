@@ -1,0 +1,13 @@
+---
+# User pi will be removed
+# This is the last task
+# Adapted from https://github.com/mikolak-net/ansible-raspi-config
+- name: remove pi user
+  user:
+    name: "{{ pi_user_to_delete }}"
+    state: absent
+    force: yes
+  async: 0
+  poll: 0
+  ignore_errors: True
+  when: user_to_delete_state == "present"

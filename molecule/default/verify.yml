@@ -1,0 +1,21 @@
+---
+- name: Verify
+  hosts: all
+  remote_user: root
+
+  tasks:
+    - name: Print current user
+      debug:
+        msg: "Current user id {{ ansible_user }}"
+
+    # verify user is absent
+    - name: Get user state
+      user:
+        name: "pi"
+        state: absent
+      register: deleted_user_data
+
+    - name: Check if user is absent
+      assert:
+        that:
+          - deleted_user_data.state == "absent"

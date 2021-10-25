@@ -1,0 +1,12 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: pi_remove_default_user
+  author: vvision
+  description: Remove default pi user.
+  license: "MIT"
+  min_ansible_version: 2.6
+  galaxy_tags:
+    - pi
+    - raspberry pi

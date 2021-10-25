@@ -1,0 +1,15 @@
+---
+- name: Print current user
+  debug:
+    msg: "Current user id {{ ansible_user }}"
+
+- name: Get user state
+  user:
+    name: "{{ pi_user_to_delete }}"
+  register: user_to_delete_data
+
+- name: user | set user state
+  set_fact:
+    user_to_delete_state: "{{ user_to_delete_data.state }}"
+  notify:
+    - remove pi user
